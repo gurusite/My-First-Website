@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ne">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nepali Phonetic Keyboard with Font Selection</title>
+    <title>Nepali Phonetic Keyboard</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Use Google Fonts for 'Noto Sans Devanagari' -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Noto Sans Devanagari', sans-serif;
             background-color: #f0f4f8;
             display: flex;
             justify-content: center;
@@ -36,7 +40,7 @@
             resize: vertical;
             outline: none;
             transition: border-color 0.2s ease-in-out;
-            font-family: 'Inter', sans-serif; /* Default to Inter */
+            font-family: 'Noto Sans Devanagari', sans-serif; /* Default to Noto */
         }
         textarea:focus {
             border-color: #3b82f6; /* focus:border-blue-500 */
@@ -119,87 +123,39 @@
             word-break: break-all;
         }
 
-        /* Font selector styles */
-        .font-selector {
-            margin-bottom: 1rem;
-            padding: 0.5rem;
-            border: 1px solid #d1d5db;
-            border-radius: 0.375rem;
-            width: 100%;
-            font-size: 1rem;
-        }
-
-        /* Font preview section */
-        .font-preview {
-            margin-top: 1rem;
-            padding: 1rem;
-            background-color: #f9fafb;
-            border-radius: 0.5rem;
-            border: 1px solid #e5e7eb;
-        }
-        .font-preview-text {
-            font-size: 1.5rem;
-            text-align: center;
-            margin: 0.5rem 0;
-            min-height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Custom font classes */
-        /* Note: 'Mangal' and 'Preeti' might need to be installed on the user's system or provided via @font-face */
-        .font-mangal {
-            font-family: 'Mangal', sans-serif;
-        }
-        .font-preeti {
-            font-family: 'Preeti', sans-serif;
-        }
-        .font-noto {
+        .textarea-box {
             font-family: 'Noto Sans Devanagari', sans-serif;
+            font-size: 1.5rem;
+            line-height: 2.25rem;
         }
-        .font-arial {
-            font-family: Arial, sans-serif;
+
+        .keyboard-row button {
+            transition: transform 0.1s ease-in-out, background-color 0.1s ease-in-out;
         }
-        .font-times {
-            font-family: 'Times New Roman', serif;
+
+        .keyboard-row button:active {
+            transform: scale(0.95);
         }
     </style>
-
-    <!-- Google Fonts for Noto Sans Devanagari -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1 class="text-2xl font-bold text-center mb-6 text-gray-800">Nepali Phonetic Keyboard</h1>
+        <h1 class="text-3xl font-bold text-center mb-6 text-gray-800">Nepali Phonetic Transliteration Keyboard</h1>
+        <p class="text-center text-gray-600 mb-4">Click the keys or type using the phonetic layout below.</p>
 
-        <!-- Font Selector -->
+        <!-- Phonetic Input Box -->
         <div class="mb-4">
-            <label for="fontSelector" class="label block">Select Font:</label>
-            <select id="fontSelector" class="font-selector">
-                <option value="font-mangal">Mangal (Standard)</option>
-                <option value="font-noto">Noto Sans Devanagari</option>
-                <option value="font-preeti">Preeti (Traditional)</option>
-                <option value="font-arial">Arial</option>
-                <option value="font-times">Times New Roman</option>
-            </select>
-        </div>
-
-        <!-- Font Preview -->
-        <div class="font-preview">
-            <div class="label text-center">Font Preview:</div>
-            <div id="fontPreview" class="font-preview-text font-mangal">न्न क्क श्र प्र ब्र ग्य त्र</div>
-        </div>
-
-        <div class="mb-4 mt-6"> <!-- Added margin-top for spacing -->
-            <label for="nepaliInput" class="label block">Type Here (English Phonetics):</label>
-            <textarea id="nepaliInput" placeholder="Start typing... yo {mobile} mero ho."></textarea>
+            <label for="phonetic-input-textarea" class="label block">Phonetic Input</label>
+            <textarea id="phonetic-input-textarea"
+                class="w-full h-24 p-4 rounded-2xl border-2 border-gray-300 focus:outline-none focus:border-blue-500 resize-none shadow-inner textarea-box"
+                placeholder="Start typing in English... yo {mobile} mero ho."></textarea>
             <div class="flex gap-2 mt-2">
                 <button id="insertZWNJ" class="action-button">ZWNJ</button>
                 <button id="insertZWJ" class="action-button">ZWJ</button>
             </div>
         </div>
 
+        <!-- Suggestions -->
         <div class="mb-4">
             <label class="label block">Suggestions:</label>
             <div id="suggestionBox" class="suggestions">
@@ -207,9 +163,12 @@
             </div>
         </div>
 
-        <div class="mb-4">
-            <label for="nepaliOutput" class="label block">Nepali Output:</label>
-            <textarea id="nepaliOutput" class="font-mangal" placeholder="Converted Nepali text will appear here." readonly></textarea>
+        <!-- Devanagari Output Box -->
+        <div class="mb-6">
+            <label for="devanagari-output-textarea" class="label block">Devanagari Output</label>
+            <textarea id="devanagari-output-textarea"
+                class="w-full h-24 p-4 rounded-2xl border-2 border-gray-300 bg-gray-100 resize-none shadow-inner textarea-box"
+                readonly></textarea>
             <div class="output-actions">
                 <button id="selectAllBtn" class="action-button">Select All</button>
                 <button id="copyBtn" class="action-button">Copy</button>
@@ -224,14 +183,12 @@
         import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, doc, getDoc, setDoc, updateDoc, increment, collection } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        const textarea = document.getElementById('nepaliInput');
+        const textarea = document.getElementById('phonetic-input-textarea');
         const suggestionBox = document.getElementById('suggestionBox');
-        const outputArea = document.getElementById('nepaliOutput');
+        const outputArea = document.getElementById('devanagari-output-textarea');
         const selectAllButton = document.getElementById('selectAllBtn');
         const copyButton = document.getElementById('copyBtn');
         const userIdDisplay = document.getElementById('userIdDisplay');
-        const fontSelector = document.getElementById('fontSelector'); // New
-        const fontPreview = document.getElementById('fontPreview');   // New
         const insertZWNJBtn = document.getElementById('insertZWNJ');
         const insertZWJBtn = document.getElementById('insertZWJ');
 
@@ -293,35 +250,6 @@
             userIdDisplay.textContent = "Firebase not initialized. History feature unavailable.";
         }
 
-        // --- Font selection functionality ---
-        fontSelector.addEventListener('change', function() {
-            const selectedFont = this.value;
-            // Apply selected font to output area
-            outputArea.className = ''; // Clear existing classes
-            outputArea.classList.add(selectedFont);
-            // Apply selected font to font preview
-            fontPreview.className = 'font-preview-text'; // Clear existing classes
-            fontPreview.classList.add(selectedFont);
-            
-            // Save font preference to localStorage
-            localStorage.setItem('nepaliKeyboardFont', selectedFont);
-        });
-
-        // Load saved font preference on page load
-        const savedFont = localStorage.getItem('nepaliKeyboardFont');
-        if (savedFont) {
-            fontSelector.value = savedFont;
-            outputArea.className = ''; // Clear existing classes
-            outputArea.classList.add(savedFont);
-            fontPreview.className = 'font-preview-text'; // Clear existing classes
-            fontPreview.classList.add(savedFont);
-        } else {
-            // Set default font if no preference is saved (e.g., 'font-mangal')
-            fontSelector.value = 'font-mangal'; // Set selector to default
-            outputArea.classList.add('font-mangal');
-            fontPreview.classList.add('font-mangal');
-        }
-
 
         // Document content for parsing phonetic rules
         const documentContent = `Nepali Barhakhari (बाराखडी)
@@ -337,7 +265,7 @@ g=ग्/ग , ga=ग/गा , gaa=गा , gi=गि/गी , gii=गी , gu=�
 घ (gha)
 gh=घ्/घ , gha=घ/घा , ghaa=घा , ghi=घि/घी , ghii=झी , ghu=घु/घू , ghuu=घू , ghe=घे , ghai=घै , gho=घो , ghau=घौ 
 ङ (nga)
-ng=ङ्/ङ , nga=ङ/ङा , ngaa=ङा , ngi=ङि/ङी , ngii=ङी , ngu=ङु/ङू , nguu=ङू , nge=ङे , ngai=ङै , ngo=ङो , ngau=ङौ  
+ng=ङ्/ङ , nga=ङ/ङा , ngaa=ङा , ngi=ङि/ङी , ngii=ڭी , ngu=ڭु/ङू , nguu=ڭू , nge=ڭे , ngai=ڭै , ngo=ڭो , ngau=ڭौ  
 च (cha)
 ch=च्/च , cha=च/चा , chaa=चा , chi=चि/ची , chii=ची , chu=चु/चू , chuu=चू , che=चे , chai=चै , cho=चो , chau=चौ
 छ (chha)
@@ -389,7 +317,7 @@ ksh=क्ष्/क्ष , ksha=क्ष/क्षा , kshaa=क्षा , 
 त्र (tra)
 tr=त्र्/त्र , tra=त्र/त्रा , traa=त्रा , tri=त्रि/त्री , trii=त्री , tru=त्रु/त्रू , truu=त्रू , tre=त्रे , trai=त्रै , tro=त्रो , trau=त्रौ
 ज्ञ (gya)
-gy=ज्ञ्/ज्ञ , gyaज्ञ/ ज्ञा , gyaa=ज्ञा , gyi=ज्ञि/ज्ञी , gyii=ज्ञी , gyu=ज्ञु/ज्ञू , gyuu=ज्ञू , gye=ज्ञे , gyai=ज्ञै , gyo=ज्ञो , gyau=ज्ञौ 
+gy=ज्ञ्/ज्ञ , gya=ज्ञ/ ज्ञा , gyaa=ज्ञा , gyi=ज्ञि/ज्ञी , gyii=ज्ञी , gyu=ज्ञु/ज्ञू , gyuu=ज्ञू , gye=ज्ञे , gyai=ज्ञै , gyo=ज्ञो , gyau=ज्ञौ 
 विशेष   वर्णहरू :
   \` ॐ \` = \`OM\`
   \` ं \` = \`*\`
@@ -456,18 +384,6 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
         barhakhariMap.set('.', ['।']);
         barhakhariMap.set('..', ['॥']);
         barhakhariMap.set(':', ['ः']);
-
-        // --- Add specific conjunct mappings for phonetic to Devanagari conversion ---
-        // This helps resolve ambiguities like 'sh' potentially mapping to 'श्' or 'ष्'
-        //barhakhariMap.set('shth', ['ष्ठ']); // For 'निष्ठुर' and similar words
-        //barhakhariMap.set('shta', ['ष्ट']); // For 'राष्ट्र' and similar words
-        //barhakhariMap.set('pra', ['प्र']); // For 'प्रदूषण' and similar words
-        //barhakhariMap.set('vi', ['वि']); // For 'प्रविधि' and similar words
-        //barhakhariMap.set('dhi', ['धि']); // For 'प्रविधि' and similar words
-        //barhakhariMap.set('swa', ['स्व']); // For 'स्वागत' and similar words
-        //barhakhariMap.set('gat', ['गत']); // For 'स्वागत' and similar words
-        // End of new specific mappings
-
 
         let selectedSuggestionIndex = -1; // New variable to track highlighted suggestion
         let highlightedButton = null; // null, 'zwnj', or 'zwj'
@@ -742,15 +658,17 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
             let i = 0;
 
             while (i < tempPhonetic.length) {
-                let segmentProcessed = false;
+                // Handle ZWNJ and ZWJ characters directly and pass them through.
+                if (tempPhonetic[i] === '\u200c' || tempPhonetic[i] === '\u200d') {
+                    devanagariOutput += tempPhonetic[i];
+                    i++;
+                    continue;
+                }
+
+                // Check for longest key match from the transliteration map
+                let matched = false;
                 let longestMatchKey = '';
                 let bestNepaliChar = '';
-
-                // If the current character is '/', skip it
-                if (tempPhonetic[i] === '/') {
-                    i++;
-                    continue; // Move to the next character without adding to output
-                }
 
                 // Try longest match first
                 for (let len = Math.min(6, tempPhonetic.length - i); len > 0; len--) {
@@ -767,9 +685,11 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
                 if (longestMatchKey) {
                     devanagariOutput += bestNepaliChar;
                     i += longestMatchKey.length;
-                    segmentProcessed = true;
-                } else {
-                    // If no phonetic match and not a '/', append the character as is (for unconvertible parts)
+                    matched = true;
+                } 
+
+                // If no match found, append the character as is
+                if (!matched) {
                     devanagariOutput += tempPhonetic[i];
                     i++;
                 }
@@ -799,7 +719,7 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
             ['घ्', 'gh'], ['घ', 'gha'], ['घा', 'ghaa'], ['घि', 'ghi'], ['घी', 'ghii'], ['घु', 'ghu'], ['घू', 'ghuu'], 
             ['घे', 'ghe'], ['घै', 'ghai'], ['घो', 'gho'], ['घौ', 'ghau'],
             ['ङ्', 'ng'], ['ङ', 'nga'], ['ङा', 'ngaa'], ['ङि', 'ngi'], ['ङी', 'ngii'], ['ङु', 'ngu'], ['ङू', 'nguu'], 
-            ['ङे', 'nge'], ['ङै', 'ngai'], ['ङो', 'ngo'], ['ङौ', 'ngau'],  
+            ['ङे', 'nge'], ['ङै', 'ngai'], ['ڭो', 'ngo'], ['ڭौ', 'ngau'],  
             ['च्', 'ch'], ['च', 'cha'], ['चा', 'chaa'], ['चि', 'chi'], ['ची', 'chii'], ['चु', 'chu'], ['चू', 'chuu'], 
             ['चे', 'che'], ['चै', 'chai'], ['चो', 'cho'], ['चौ', 'chau'],
             ['छ्', 'chh'], ['छ', 'chha'], ['छा', 'chhaa'], ['छि', 'chhi'], ['छी', 'chhii'], ['छु', 'chhu'], ['छू', 'chhuu'], 
@@ -819,7 +739,7 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
             ['ढ्', 'dh'], ['ढ', 'dha'], ['ढा', 'dhaa'], ['ढि', 'dhi'], ['ढी', 'dhii'], ['ढु', 'dhu'], ['ढू', 'dhuu'], 
             ['धे', 'dhe'], ['धै', 'dhai'], ['धो', 'dho'], ['धौ', 'dhau'], 
             ['ण्', 'n'], ['ण', 'na'], ['णा', 'naa'], ['णि', 'ni'], ['णी', 'nii'], ['णु', 'nu'], ['णू', 'nuu'], ['णे', 'ne'], 
-            ['णै', 'nai'], ['णो', 'no'], ['णौ', 'nau'], 
+            ['णै', 'nai'], ['णो', 'no'], ['णौ', 'nau'],
             ['त्', 't'], ['त', 'ta'], ['ता', 'taa'], ['ति', 'ti'], ['ती', 'tii'], ['तु', 'tu'], ['तू', 'tuu'], ['ते', 'te'], 
             ['तै', 'tai'], ['तो', 'to'], ['तौ', 'tau'], 
             ['थ्', 'th'], ['थ', 'tha'], ['था', 'thaa'], ['थि', 'thi'], ['थी', 'thii'], ['थु', 'thu'], ['थू', 'thuu'], 
@@ -923,52 +843,51 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
 
         // --- Cleaned Nepali Word Dictionary (only Devanagari words) ---
         const nepaliDictionary = [
-            "नेपाल", "नमस्कार", "स्वागत", "के छ खबर", "शुभकामना", "घर", "परिवार", "जीवन", "आशा", "प्रेम",
-            "शान्ति", "खुसी", "सपना", "यात्रा", "पहाड", "नदी", "सूर्य", "चन्द्रमा", "तारा", "पानी",
-            "आकाश", "भूमि", "रूख", "फूल", "चरा", "जनावर", "किताब", "विद्यालय", "शिक्षक", "विद्यार्थी",
-            "खाना", "रोटी", "भात", "तरकारी", "फलफूल", "दूध", "चिया", "कफी", "दही", "मक्खन",
-            "चामल", "गहुँ", "मकै", "अदुवा", "लसुन", "प्याज", "खुर्सानी", "बेसार", "जिरा", "धनियाँ",
-            "नुन", "चिनी", "तेल", "घिउ", "मासु", "अण्डा", "माछा", "कुखुरा", "खसी", "गाई",
-            "भैंसी", "सुँगुर", "बाख्रा", "बिरालो", "कुकुर", "हात्ती", "बाघ", "सिंह", "चितुवा", "भालु",
-            "गोरु", "घोडा", "गधा", "ऊँट", "बाँदर", "स्याल", "कछुवा", "सर्प", "गोही", "पोथी",
-            "भाले", "बच्चा", "युवा", "वृद्ध", "पुरुष", "महिला", "छोरा", "छोरी", "बुबा", "आमा",
-            "दाजु", "भाइ", "दिदी", "बहिनी", "पति", "पत्नी", "मित्र", "शत्रु", "मानिस", "भगवान",
-            "पूजा", "मन्दिर", "गुम्बा", "चर्च", "मस्जिद", "चाडपर्व", "दशैं", "तिहार", "होली", "गाईजात्रा",
-            "विवाह", "जन्मदिन", "मृत्यु", "संसार", "ब्रह्माण्ड", "आत्मा", "शरीर", "मन", "सोच", "ज्ञान",
-            "विज्ञान", "प्रविधि", "इतिहास", "भूगोल", "अर्थशास्त्र", "राजनीति", "समाजशास्त्र", "कला", "संगीत", "नृत्य",
-            "चलचित्र", "नाटक", "कथा", "कविता", "उपन्यास", "लेख", "पत्र", "समाचार", "रेडियो", "टेलिभिजन",
-            "अखबार", "पत्रिका", "इन्टरनेट", "मोबाइल", "कम्प्युटर", "ल्यापटप", "क्यामेरा", "घडी", "रुपैयाँ", "पैसा",
-            "बैंक", "बजार", "दुकान", "सडक", "पुल", "गाडी", "बस", "ट्याक्सी", "रेल", "विमान",
-            "जहाज", "बंदरगाह", "विमानस्थल", "अस्पताल", "डाक्टर", "नर्स", "औषधि", "रोग", "स्वास्थ्य", "उपचार",
-            "शिक्षा", "परीक्षा", "नतिजा", "डिग्री", "रोजगार", "व्यवसाय", "व्यापार", "उद्योग", "कृषि", "पशुपालन",
-            "जङ्गल", "वन्यजन्तु", "वातावरण", "प्रदूषण", "जलवायु", "मौसम", "वर्षा", "हिउँ", "गर्मी", "जाडो",
-            "वसन्त", "शरद", "ग्रिष्म", "शिशिर", "रात", "दिन", "बिहान", "बेलुका", "मध्यरात", "घण्टा",
-            "मिनेट", "सेकेन्ड", "समय", "मिति", "वर्ष", "महिना", "हप्ता", "दिन", "आज", "भोलि",
-            "हिजो", "पर्सी", "अस्ति", "सधैं", "कहिले", "जहिले", "अहिले", "यहाँ", "त्यहाँ", "कहाँ",
-            "यता", "उता", "कतै", "माथि", "तल", "अगाडि", "पछाडि", "दायाँ", "बायाँ", "भित्र",
-            "बाहिर", "नजिक", "टाढा", "धेरै", "थोरै", "सबै", "कोही", "केही", "यो", "त्यो",
-            "मेरो", "तेरो", "हाम्रो", "तिमी", "तपाईं", "उहाँ", "ऊ", "यी", "तिनीहरू", "को",
-            "के", "किन", "कति", "कसरी", "जस्तो", "तथा", "र", "वा", "तर", "अनि",
-            "कि", "पनि", "मात्र", "नै", "न", "हो", "छैन", "छ", "थियो", "हुनेछ",
-            "गर्नु", "जानु", "आउनु", "खानु", "पिउनु", "सुत्नु", "उठ्नु", "बस्नु", "हिंड्नु", "दौडनु",
-            "हेर्नु", "लेख्नु", "पढ्नु", "बोल्नु", "सुन्नु", "सोध्नु", "दिनु", "लिनु", "गर्न", "हुन",
-            "गरे", "भयो", "हुन्छ", "गरिरहेको", "जानेछ", "आउनेछ", "खानेछ", 
-            "सुत्नेछ", "उठ्नेछ", "बस्नेछ", "हिंड्नेछ", "दौडनेछ", "हेर्नेछ", "लेख्नेछ", "पढ्नेछ", "बोल्नेछ", "सुन्नेछ", "सोध्नेछ", "दिनेछ",
-            "लिनेछ", "गरेको", "भएको", "गर्दै", "जाँदै", "आउँदै", "खाँदै", "पिउँदै", "सुत्दै", "उठ्दै",
-            "बस्दै", "हिंड्दै", "दौडँदै", "हेर्दै", "लेख्दै", "पढ्दै", "बोल्दै", "सुन्दै", "सोध्दै", "दिँदै",
-            "लिँदै", "खुला", "बन्द", "नयाँ", "पुरानो", "ठूलो", "सानो", "लामो", "छोटो", "मोटो",
-            "पातलो", "रमाइलो", "दुःखद", "मीठो", "निलो", "रातो", "हरियो", "पहेंलो", "कालो", "सेतो",
-            "रंग", "चित्र", "अंक", "शून्य", "एक", "दुई", "तीन", "चार", "पाँच", "छ",
-            "सात", "आठ", "नौ", "दश", "सय", "हजार", "लाख", "करोड", "अरब", "खर्ब",
-            "पहिलो", "दोस्रो", "तेस्रो", "अन्तिम", "मुख्य", "सहायक", "पूर्ण", "अपूर्ण", "सत्य", "झूटो",
-            "सही", "गलत", "राम्रो", "नराम्रो", "सजिलो", "गाह्रो", "तेज", "ढिलो", "खाली", "भरिएको",
-            "गहिरो", "उथलो", "सीधा", "बाङ्गो", "गोलो", "चौडा", "पातलो", "ठोस", "तरल", "ग्यास",
-            "taato", "chiso", "garm", "chiso", "bhijeko", "sukkha", "ujyaalo", "andhyaro", "haluka", "gahiro",
-            "shanta", "ashanta", "aafno", "arko", "vibhinna", "samaan", "farak", "sadharan", "vishesh", "mahatvapurna",
-            "aavashyak", "anavashyak", "purna", "apoorna", "samanya", "asamanya", "sundar", "kuroop", "dhani", "garib",
-            "dayalu", "nisthur", "imandaar", "beimaan", "kathore", "naram", "khusi", "dukhi", "swasth", "aswasth",
-            "jiundo", "mareko", "safaa", "fohore", "purano", "naya", "puraana", "naya", "ramro", "naramro",
-            "स्त्री","द्वन्द्व","मर्‍यो",
+            "नेपाल", "नमस्कार", "स्वागत", "के छ खबर", "शुभकामना", "शान्ति", "खुसी", "सपना", "यात्रा", "पहाड",
+            "नदी", "सूर्य", "चन्द्रमा", "तारा", "पानी", "आकाश", "भूमि", "रूख", "फूल", "चरा",
+            "जनावर", "किताब", "विद्यालय", "शिक्षक", "विद्यार्थी", "खाना", "रोटी", "भात", "तरकारी", "फलफूल",
+            "दूध", "चिया", "कफी", "दही", "मक्खन", "चामल", "गहुँ", "मकै", "अदुवा", "लसुन",
+            "प्याज", "खुर्सानी", "बेसार", "जिरा", "धनियाँ", "नुन", "चिनी", "तेल", "घिउ", "मासु",
+            "अण्डा", "माछा", "कुखुरा", "खसी", "गाई", "भैंसी", "सुँगुर", "बाख्रा", "बिरालो", "कुकुर",
+            "हात्ती", "बाघ", "सिंह", "चितुवा", "भालु", "गोरु", "घोडा", "गधा", "ऊँट", "बाँदर",
+            "स्याल", "कछुवा", "सर्प", "गोही", "पोथी", "भाले", "बच्चा", "युवा", "वृद्ध", "पुरुष",
+            "महिला", "छोरा", "छोरी", "बुबा", "आमा", "दाजु", "भाइ", "दिदी", "बहिनी", "पति",
+            "पत्नी", "मित्र", "शत्रु", "मानिस", "भगवान", "पूजा", "मन्दिर", "गुम्बा", "चर्च", "मस्जिद",
+            "चाडपर्व", "दशैं", "तिहार", "होली", "गाईजात्रा", "विवाह", "जन्मदिन", "मृत्यु", "संसार", "ब्रह्माण्ड",
+            "आत्मा", "शरीर", "मन", "सोच", "ज्ञान", "विज्ञान", "प्रविधि", "इतिहास", "भूगोल", "अर्थशास्त्र",
+            "राजनीति", "समाजशास्त्र", "कला", "संगीत", "नृत्य", "चलचित्र", "नाटक", "कथा", "कविता", "उपन्यास",
+            "लेख", "पत्र", "समाचार", "रेडियो", "टेलिभिजन", "अखबार", "पत्रिका", "इन्टरनेट", "मोबाइल", "कम्प्युटर",
+            "ल्यापटप", "क्यामेरा", "घडी", "रुपैयाँ", "पैसा", "बैंक", "बजार", "दुकान", "सडक", "पुल",
+            "गाडी", "बस", "ट्याक्सी", "रेल", "विमान", "जहाज", "बंदरगाह", "विमानस्थल", "अस्पताल", "डाक्टर",
+            "नर्स", "औषधि", "रोग", "स्वास्थ्य", "उपचार", "शिक्षा", "परीक्षा", "नतिजा", "डिग्री", "रोजगार",
+            "व्यवसाय", "व्यापार", "उद्योग", "कृषि", "पशुपालन", "जङ्गल", "वन्यजन्तु", "वातावरण", "प्रदूषण", "जलवायु",
+            "मौसम", "वर्षा", "हिउँ", "गर्मी", "जाडो", "वसन्त", "शरद", "ग्रिष्म", "शिशिर", "रात",
+            "दिन", "बिहान", "बेलुका", "मध्यरात", "घण्टा", "मिनेट", "सेकेन्ड", "समय", "मिति", "वर्ष",
+            "महिना", "हप्ता", "दिन", "आज", "भोलि", "हिजो", "पर्सी", "अस्ति", "सधैं", "कहिले",
+            "जहिले", "अहिले", "यहाँ", "त्यहाँ", "कहाँ", "यता", "उता", "कतै", "माथि", "तल",
+            "अगाडि", "पछाडि", "दायाँ", "बायाँ", "भित्र", "बाहिर", "नजिक", "टाढा", "धेरै", "थोरै",
+            "सबै", "कोही", "केही", "यो", "त्यो", "मेरो", "तेरो", "हाम्रो", "तिमी", "तपाईं",
+            "उहाँ", "ऊ", "यी", "तिनीहरू", "को", "के", "किन", "कति", "कसरी", "जस्तो",
+            "तथा", "र", "वा", "तर", "अनि", "कि", "पनि", "मात्र", "नै", "न",
+            "हो", "छैन", "छ", "थियो", "हुनेछ", "गर्नु", "जानु", "आउनु", "खानु", "पिउनु",
+            "सुत्नु", "उठ्नु", "बस्नु", "हिंड्नु", "दौडनु", "हेर्नु", "लेख्नु", "पढ्नु", "बोल्नु", "सुन्नु",
+            "सोध्नु", "दिनु", "लिनु", "गर्न", "हुन", "गरे", "भयो", "हुन्छ", "गरिरहेको", "जानेछ",
+            "आउनेछ", "खानेछ", "सुत्नेछ", "उठ्नेछ", "बस्नेछ", "हिंड्नेछ", "दौडनेछ", "हेर्नेछ", "लेख्नेछ", "पढ्नेछ",
+            "बोल्नेछ", "सुन्नेछ", "सोध्नेछ", "दिनेछ", "लिनेछ", "गरेको", "भएको", "गर्दै", "जाँदै", "आउँदै",
+            "खाँदै", "पिउँदै", "सुत्दै", "उठ्दै", "बस्दै", "हिंड्दै", "दौडँदै", "हेर्दै", "लेख्दै", "पढ्दै",
+            "बोल्दै", "सुन्दै", "सोध्दै", "दिँदै", "लिँदै", "खुला", "बन्द", "नयाँ", "पुरानो", "ठूलो",
+            "सानो", "लामो", "छोटो", "मोटो", "पातलो", "रमाइलो", "दुःखद", "मीठो", "निलो", "रातो",
+            "हरियो", "पहेंलो", "कालो", "सेतो", "रंग", "चित्र", "अंक", "शून्य", "एक", "दुई",
+            "तीन", "चार", "पाँच", "छ", "सात", "आठ", "नौ", "दश", "सय", "हजार",
+            "लाख", "करोड", "अरब", "खर्ब", "पहिलो", "दोस्रो", "तेस्रो", "अन्तिम", "मुख्य", "सहायक",
+            "पूर्ण", "अपूर्ण", "सत्य", "झूटो", "सही", "गलत", "राम्रो", "नराम्रो", "सजिलो", "गाह्रो",
+            "तेज", "ढिलो", "खाली", "भरिएको", "गहिरो", "उथलो", "सीधा", "बाङ्गो", "गोलो", "चौडा",
+            "पातलो", "ठोस", "तरल", "ग्यास", "taato", "chiso", "garm", "chiso", "bhijeko", "sukkha",
+            "ujyaalo", "andhyaro", "haluka", "gahiro", "shanta", "ashanta", "aafno", "arko", "vibhinna", "samaan",
+            "farak", "sadharan", "vishesh", "mahatvapurna", "aavashyak", "anavashyak", "purna", "apoorna", "samanya", "asamanya",
+            "sundar", "kuroop", "dhani", "garib", "dayalu", "nisthur", "imandaar", "beimaan", "kathore", "naram",
+            "khusi", "dukhi", "swasth", "aswasth", "jiundo", "mareko", "safaa", "fohore", "purano", "naya",
+            "puraana", "naya", "ramro", "naramro", "स्त्री","द्वन्द्व","मर्‍यो",
         ];
         
 
@@ -1545,6 +1464,8 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
             outputArea.value = finalOutput;
         }
 
+        let shiftPressedAlone = false; // Flag to detect if Shift was pressed alone (without other keys)
+
         textarea.addEventListener('keydown', (event) => {
             const suggestions = suggestionBox.querySelectorAll('.suggestion-btn');
             const numSuggestions = suggestions.length;
@@ -1568,21 +1489,18 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
                 return; // Crucial: Exit after handling Tab, to prevent other logic from interfering
             }
 
-            // --- Handle Shift key to cycle between ZWNJ and ZWJ buttons ---
+            // --- Handle Shift key (set flag for potential alone press) ---
             if (event.key === 'Shift') {
                 event.preventDefault();
                 if (!event.repeat) {
-                    if (highlightedButton === null || highlightedButton === 'zwj') {
-                        highlightedButton = 'zwnj';
-                        insertZWNJBtn.classList.add('highlighted');
-                        insertZWJBtn.classList.remove('highlighted');
-                    } else {
-                        highlightedButton = 'zwj';
-                        insertZWNJBtn.classList.remove('highlighted');
-                        insertZWJBtn.classList.add('highlighted');
-                    }
+                    shiftPressedAlone = true; // Assume alone until proven otherwise
                 }
                 return;
+            }
+
+            // --- If another key is pressed while Shift is held, mark as not alone ---
+            if (isShiftPressed && event.key !== 'Shift') {
+                shiftPressedAlone = false;
             }
 
             // --- Other Keydown Logic (only if Tab or Shift was NOT pressed) ---
@@ -1815,6 +1733,32 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
             }
         });
 
+        textarea.addEventListener('keyup', (event) => {
+            // Handle Shift keyup for ZWNJ/ZWJ toggle only if pressed alone
+            if (event.key === 'Shift' && shiftPressedAlone) {
+                event.preventDefault();
+                // Toggle highlight
+                if (highlightedButton === null || highlightedButton === 'zwj') {
+                    highlightedButton = 'zwnj';
+                    insertZWNJBtn.classList.add('highlighted');
+                    insertZWJBtn.classList.remove('highlighted');
+                } else {
+                    highlightedButton = 'zwj';
+                    insertZWNJBtn.classList.remove('highlighted');
+                    insertZWJBtn.classList.add('highlighted');
+                }
+                shiftPressedAlone = false; // Reset flag
+                return;
+            }
+
+            // Reset flag if not handled above
+            shiftPressedAlone = false;
+
+            // Other keyup logic (e.g., ensure updates after key interactions)
+            updateOutput();
+            generateAndDisplaySuggestions(); // This will respect the `suggestionsEnabled` flag
+        });
+
 
         textarea.addEventListener('beforeinput', (event) => {
             const oldVisibleValue = textarea.value;
@@ -1979,7 +1923,7 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
 
         textarea.addEventListener('input', (event) => {
             const oldVisibleValue = lastProcessedTextAreaValue; // Value captured by `beforeinput`
-            const newVisibleValue = textarea.value; // Current value after browser's default handling (if not prevented by beforeinput)
+            const newVisibleValue = textarea.value; // Current value after browser's default handling (if not prevented by beforeinput by beforeinput)
 
             // Determine what visible text was changed (inserted/deleted)
             const { visibleChangeStart, visibleOldEnd, visibleNewEnd } = getVisibleTextDiff(oldVisibleValue, newVisibleValue);
@@ -1994,16 +1938,6 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
         });
 
 
-        textarea.addEventListener('keyup', (event) => {
-            // Keyup can occur without an `input` event (e.g., cursor movement, Ctrl+A).
-            // For Backspace/Delete, `input` or `beforeinput` already handles adjustment if a visible change occurred or hidden char was deleted.
-            // This is a primarily for ensuring suggestions/output are fresh after any other keyboard interaction (e.g., arrow keys, Ctrl+C).
-            
-            updateOutput();
-            generateAndDisplaySuggestions(); // This will respect the `suggestionsEnabled` flag
-        });
-
-
         textarea.addEventListener('blur', () => {
             setTimeout(() => {
                 const activeElement = document.activeElement;
@@ -2014,7 +1948,6 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
                 if (!isInteractingWithOutputControls && !suggestionBox.contains(activeElement)) {
                     // Do not clear suggestions if blur is due to clicking on output controls or a suggestion button
                     // The assumption is that suggestion selection should be handled by its click listener.
-                    // If blur happens for other reasons, we might want to clear suggestions to de-clutter.
                     // For now, keep them visible until a selection or new typing.
                 }
             }, 50);
@@ -2100,7 +2033,7 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
             // or the deletion mapping was ambiguous/couldn't be resolved precisely,
             // revert outputArea to its calculated value based on input and re-sync.
             // This prevents arbitrary edits in outputArea from breaking the sync.
-            // This also ensures that something was typed directly in output, it gets reverted.
+            // This also ensures that something was typed directly in it, it gets reverted.
             updateOutput(); // Re-sync output from input
             generateAndDisplaySuggestions();
             textarea.focus(); // Keep focus on input
