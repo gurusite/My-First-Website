@@ -58,7 +58,7 @@
             color: #1d4ed8; /* text-blue-800 */
             padding: 0.5rem 0.75rem; /* px-3 py-2 */
             border-radius: 0.375rem; /* rounded-md */
-            font-size: 1.5rem; /* text-base */
+            font-size: 1rem; /* text-base */
             font-weight: 500; /* font-medium */
             cursor: pointer;
             border: none;
@@ -85,7 +85,6 @@
             font-weight: 600; /* font-semibold */
             margin-bottom: 0.5rem; /* mb-2 */
             color: #1f2937; /* text-gray-900 */
-            font-size: 1.5rem;      
         }
         .output-actions {
             display: flex;
@@ -151,13 +150,12 @@
             color: white;
             padding: 0.75rem 1rem;
             font-weight: 600;
-            font-size: 1.5rem;
+            font-size: 1.125rem;
         }
         
         .tips-content {
             background-color: #f1f5f9;
             padding: 1rem;
-      		font-size: 1.5rem;
         }
         
         .tip-item {
@@ -184,13 +182,12 @@
             color: white;
             padding: 0.75rem 1rem;
             font-weight: 600;
-            font-size: 1.5rem;
+            font-size: 1.125rem;
         }
         
         .examples-content {
             background-color: #ecfdf5;
             padding: 1rem;
-      		font-size: 1.5rem;
         }
         
         .example-item {
@@ -219,7 +216,7 @@
             <label for="phonetic-input-textarea" class="label block">Phonetic Input</label>
             <textarea id="phonetic-input-textarea"
                 class="w-full h-24 p-4 rounded-2xl border-2 border-gray-300 focus:outline-none focus:border-blue-500 resize-none shadow-inner textarea-box"
-                placeholder="Start typing in English... yo {mobile} mero ho."></textarea>
+                placeholder="Start typing in English... yo {mobile} mero ho." spellcheck="false" autocorrect="off" autocapitalize="off"></textarea>
             <div class="flex gap-2 mt-2">
                 <button id="insertZWNJ" class="action-button">ZWNJ</button>
                 <button id="insertZWJ" class="action-button">ZWJ</button>
@@ -411,7 +408,7 @@ g=ग्/ग , ga=ग/गा , gaa=गा , gi=गि/गी , gii=गी , gu=�
 घ (gha)
 gh=घ्/घ , gha=घ/घा , ghaa=घा , ghi=घि/घी , ghii=झी , ghu=घु/घू , ghuu=घू , ghe=घे , ghai=घै , gho=घो , ghau=घौ 
 ङ (nga)
-ng=ङ्/ङ , nga=ङ/ङा , ngaa=ङा , ngi=ङि/ङी , ngii=ङी , ngu=ङु/ङू , nguu=ङू , nge=ङे , ngai=ङै , ngo=ङो , ngau=ङौ   
+ng=ङ्/ङ , nga=ڭ/ڭा , ngaa=ڭा , ngi=ڭि/ڭी , ngii=ڭी , ngu=ڭु/ڭू , nguu=ڭू , nge=ڭे , ngai=ڭै , ngo=ڭो , ngau=ڭौ  
 च (cha)
 ch=च्/च , cha=च/चा , chaa=चा , chi=चि/ची , chii=ची , chu=चु/चू , chuu=चू , che=चे , chai=चै , cho=चो , chau=चौ
 छ (chha)
@@ -433,7 +430,7 @@ d= ड्/द्/ड/द , da= ड/द/डा/दा , daa=दा , di= डि/�
 ध (dha)
 dh= ढ्/ध् , dha= ढ/ध/ढा/धा , dhaa= ढा/धा , dhi= ढि/धि/ढी/धी , dhii= ढी/धी , dhu= ढु/धु/ढू/धू , dhuu= ढू/धू , dhe= ढे/धे , dhai= ढै/धै , dho=ढो/धो , dhau=ढौ/धौ 
 न (na)
-n=न्/ण्/ञ्/न/ञ/ण/ ं , na=न/ञ/ण/ना , naa=ना , ni=नि/नी/णि/णी , nii=नी/णी , nu=नु/नू , nuu=नू , ne=ने/णे , nai=नै/णै , no=नो/णो , nau=नौ/णौ
+n=न्/ण्/ञ्/न/ञ/ण , na=न/ञ/ण/ना , naa=ना , ni=नि/नी/णि/णी , nii=नी/णी , nu=नु/नू , nuu=नू , ne=ने/णे , nai=नै/णै , no=नो/णो , nau=नौ/णौ
 प (pa)
 p=प्/ प  , pa=प/ पा  , paa=पा , pi=पि/ पी  , pii=पी , pu=पु/ पू  , puu=पू , pe=पे , pai=पै , po=पो , pau=पौ
 फ (pha)
@@ -443,7 +440,7 @@ b=ब्/ब/व्/व, ba=ब/बा/व/वा , baa=बा/वा , bi=ब�
 भ (bha)
 bh=भ्/ भ  , bha=भ/ भा  , bhaa=भा , bhi=भि/ भी  , bhii=भी , bhu=भु/ भू  , bhuu=भू , bhe=भे , bhai=भै , bho=भो , bhau=भौ 
 म (ma)
-m=म्/ म/ ं  , ma=म/ मा  , maa=मा , mi=मि/ मी  , mii=मी , mu=मु/ मू  , muu=मू , me=मे , mai=मै , mo=मो , mau=मौ
+m=म्/ म  , ma=म/ मा  , maa=मा , mi=मि/ मी  , mii=मी , mu=मु/ मू  , muu=मू , me=मे , mai=मै , mo=मो , mau=मौ
 य (ya)
 y=य्/ य  , ya=य/ या  , yaa=या , yi=यि/ यी  , yii=यी , yu=यु/ यू  , yuu=यू , ye=ये , yai=यै , yo=यो , yau=यौ 
 र (ra)
@@ -822,15 +819,25 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
                     let lookupKey = caseSensitiveKeys.has(segment) ? segment : segment.toLowerCase();
 
                     if (barhakhariMap.has(lookupKey)) {
-                        bestNepaliChar = barhakhariMap.get(lookupKey)[0];
                         longestMatchKey = segment;
                         break;
                     }
                 }
 
                 if (longestMatchKey) {
-                    devanagariOutput += bestNepaliChar;
-                    i += longestMatchKey.length;
+                    const forms = barhakhariMap.get(caseSensitiveKeys.has(longestMatchKey) ? longestMatchKey : longestMatchKey.toLowerCase());
+                    let selectedForm = forms[0]; // Default to first form (often halanta for consonants)
+
+                    // Check if followed by backslash (\) in conceptual input
+                    let matchLength = longestMatchKey.length;
+                    const nextIndex = i + matchLength;
+                    if (nextIndex < tempPhonetic.length && tempPhonetic[nextIndex] === '\\' && selectedForm.endsWith('्')) {
+                        selectedForm = selectedForm.slice(0, -1);
+                        matchLength += 1;
+                    }
+
+                    devanagariOutput += selectedForm;
+                    i += matchLength;
                     matched = true;
                 } 
 
@@ -853,19 +860,19 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
             ['ए', 'e'], ['ऐ', 'ai'], ['ओ', 'o'], ['औ', 'au'],
 
             // Special symbols
-            ['ॐ', 'om'], ['।', '.'], ['॥', '..'],['ृ','ri'],['ँ',''], ['ं',''], ['्',''], [ '?','?'], ['!','!'], ['ः',''],
+            ['ॐ', 'om'], ['।', '.'], ['॥', '..'],['ृ','ri'],['ँ',''], ['ं',''], ['्',''], [ '?','?'], ['!','!'],
             
          	//Barhakhari (consolidated to prioritize common simplified forms)
             ['क्', 'k'], ['क', 'ka'], ['का', 'kaa'], ['कि', 'ki'], ['की', 'ki'], ['कु', 'ku'], ['कू', 'ku'], ['के', 'ke'], 
             ['कै', 'kai'], ['को', 'ko'], ['कौ', 'kau'],
-            ['ख्', 'kh'],['ख', 'kha'], ['खा', 'kha'], ['खि', 'khi'], ['खी', 'khi'], ['खु', 'khu'], ['खू', 'khu'], 
+            ['ख्', 'kh'],['ख', 'kh'], ['खा', 'kha'], ['खि', 'khi'], ['खी', 'khi'], ['खु', 'khu'], ['खू', 'khu'], 
             ['खे', 'khe'], ['खै', 'khai'], ['खो', 'kho'], ['खौ', 'khau'],
             ['ग्', 'g'], ['ग', 'ga'], ['गा', 'gaa'], ['गि', 'gi'], ['गी', 'gi'], ['गु', 'gu'], ['गू', 'gu'], ['गे', 'ge'], 
             ['गै', 'gai'], ['गो', 'go'], ['गौ', 'gau'], 
             ['घ्', 'gh'], ['घ', 'gha'], ['घा', 'ghaa'], ['घि', 'ghi'], ['घी', 'ghi'], ['घु', 'ghu'], ['घू', 'ghu'], 
             ['घे', 'ghe'], ['घै', 'ghai'], ['घो', 'gho'], ['घौ', 'ghau'],
-            ['ङ्', 'ng'], ['ङ', 'nga'], ['ङा', 'ngaa'], ['ङि', 'ngi'], ['ङी', 'ngii'], ['ङु', 'ngu'], ['ङू', 'nguu'], 
-            ['ङे', 'nge'], ['ङै', 'ngai'], ['ङो', 'ngo'], ['ङौ', 'ngau'], 
+            ['ङ्', 'ng'], ['ڭ', 'nga'], ['ڭा', 'ngaa'], ['ڭि', 'ngi'], ['ڭी', 'ngi'], ['ڭु', 'ngu'], ['ڭू', 'ngu'], 
+            ['ڭे', 'nge'], ['ڭै', 'ngai'], ['ڭो', 'ngo'], ['ڭौ', 'ngau'],  
             ['च्', 'ch'], ['च', 'cha'], ['चा', 'chaa'], ['चि', 'chi'], ['ची', 'chi'], ['चु', 'chu'], ['चू', 'chu'], 
             ['चे', 'che'], ['चै', 'chai'], ['चो', 'cho'], ['चौ', 'chau'],
             ['छ्', 'chh'], ['छ', 'chha'], ['छा', 'chhaa'], ['छि', 'chhi'], ['छी', 'chhi'], ['छु', 'chhu'], ['छू', 'chhu'], 
@@ -1040,13 +1047,12 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
         // --- Common Spelling Dictionary (English to Nepali direct mappings, case-insensitive) ---
         const commonSpellingDictionary = new Map([
             ['nepal', 'नेपाल'],
-            ['kathmandu', 'काठमणडौँ'],
-            ['himalaya', 'हिमालय'],
-            ['sagarmatha', 'सगरमाथा'],
+	    ['kathmandu', 'काठमणडौँ'],
+	    ['himalaya', 'हिमालय'],
             // Add more common mappings as needed, e.g.:
-            //['kathmandu', 'काठमणडौँ'],
-            //['himalaya', 'हिमालय'],
-            //['sagarmatha', 'सगरमाथा'],
+            // ['kathmandu', 'काठमाडौं'],
+            // ['himalaya', 'हिमालय'],
+            // ['everest', 'सगरमाथा'],
             // ['namaste', 'नमस्ते']
         ]);
 
@@ -1533,9 +1539,16 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
 
                     // Only apply override if the *current conceptual input* still matches the *original phonetic key*
                     if (lookupKey === (caseSensitiveKeys.has(override.originalKey) ? override.originalKey : override.originalKey.toLowerCase())) {
-                        finalOutput += override.selectedNepali;
-                        conceptualSegmentLengthUsed = override.originalKey.length;
-                        for (let k = 0; k < override.selectedNepali.length; k++) {
+                        let selected = override.selectedNepali;
+                        let overrideLength = override.originalKey.length;
+                        const nextIndex = i + overrideLength;
+                        if (nextIndex < conceptualInput.length && conceptualInput[nextIndex] === '\\' && selected.endsWith('्')) {
+                            selected = selected.slice(0, -1);
+                            overrideLength += 1;
+                        }
+                        finalOutput += selected;
+                        conceptualSegmentLengthUsed = overrideLength;
+                        for (let k = 0; k < selected.length; k++) {
                             outputToConceptualMap.push({ conceptualStart: i, conceptualEnd: i + conceptualSegmentLengthUsed, type: 'override' });
                         }
                         i += conceptualSegmentLengthUsed;
@@ -1555,7 +1568,7 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
                         // Ensure the segment consists only of letters (no / or hidden modifiers inside for common match)
                         let hasInvalidChar = false;
                         for (let j = i; j < wordEnd; j++) {
-                            if (conceptualInput[j] === '/' || conceptualInput[j] === '*' || conceptualInput[j] === '**' || conceptualInput[j] === '\\') {
+                            if (conceptualInput[j] === '/' || conceptualInput[j] === '*' || conceptualInput[j] === '**') {
                                 hasInvalidChar = true;
                                 break;
                             }
@@ -1581,16 +1594,21 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
                 if (!segmentProcessed) {
                     // console.log(`[updateOutput] Falling back to phonetic conversion for conceptual index ${i}. Segment: "${conceptualInput.substring(i, Math.min(i + 6, conceptualInput.length))}"`);
                     // If the current conceptual character is '/', skip it entirely
-                    if (conceptualInput[i] === '/' || conceptualInput[i] === '\\') {
-                        conceptualSegmentLengthUsed = 1; // Consume the '/' or '\\' from conceptual input
+                    if (conceptualInput[i] === '/') {
+                        conceptualSegmentLengthUsed = 1; // Consume the '/' from conceptual input
                         // Do NOT add to finalOutput
                         outputToConceptualMap.push({ conceptualStart: i, conceptualEnd: i + conceptualSegmentLengthUsed, type: 'ignored-separator' });
                         i += conceptualSegmentLengthUsed;
                         segmentProcessed = true;
+                    } else if (conceptualInput[i] === '\\') {
+                        conceptualSegmentLengthUsed = 1; // Consume the '\\' from conceptual input
+                        // Do NOT add to finalOutput
+                        outputToConceptualMap.push({ conceptualStart: i, conceptualEnd: i + conceptualSegmentLengthUsed, type: 'ignored-modifier' });
+                        i += conceptualSegmentLengthUsed;
+                        segmentProcessed = true;
                     } else {
                         let longestMatchKey = '';
-                        let bestIndex = 0;
-                        let consumeExtra = 0;
+                        let bestNepaliChar = '';
                         let currentSegmentEndIndex = conceptualInput.length;
                         for(let k = i; k < conceptualInput.length; k++) {
                             // Stop a phonetic segment at space or explicit '/'
@@ -1612,22 +1630,21 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
                         }
                         
                         if (longestMatchKey) {
-                            const lookupKey = caseSensitiveKeys.has(longestMatchKey) ? longestMatchKey : longestMatchKey.toLowerCase();
-                            const forms = barhakhariMap.get(lookupKey);
-                            const nextIdx = i + longestMatchKey.length;
-                            if (nextIdx < conceptualInput.length && conceptualInput[nextIdx] === '\\') {
-                                if (forms.length > 1) {
-                                    bestIndex = 1;
-                                }
-                                consumeExtra = 1;
+                            const forms = barhakhariMap.get(caseSensitiveKeys.has(longestMatchKey) ? longestMatchKey : longestMatchKey.toLowerCase());
+                            let selectedForm = forms[0];
+                            let matchLength = longestMatchKey.length;
+                            const nextIndex = i + matchLength;
+                            if (nextIndex < conceptualInput.length && conceptualInput[nextIndex] === '\\' && selectedForm.endsWith('्')) {
+                                selectedForm = selectedForm.slice(0, -1);
+                                matchLength += 1;
                             }
-                            const bestNepaliChar = forms[bestIndex];
+                            bestNepaliChar = selectedForm;
+                            conceptualSegmentLengthUsed = matchLength;
                             finalOutput += bestNepaliChar;
-                            conceptualSegmentLengthUsed = longestMatchKey.length;
                             for (let k = 0; k < bestNepaliChar.length; k++) {
                                 outputToConceptualMap.push({ conceptualStart: i, conceptualEnd: i + conceptualSegmentLengthUsed, type: 'phonetic' });
                             }
-                            i += conceptualSegmentLengthUsed + consumeExtra;
+                            i += conceptualSegmentLengthUsed;
                         } else {
                             // Fallback: direct copy of character to output (only if not a separator)
                             finalOutput += conceptualInput[i];
@@ -1678,6 +1695,30 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
             // --- If another key is pressed while Shift is held, mark as not alone ---
             if (isShiftPressed && event.key !== 'Shift') {
                 shiftPressedAlone = false;
+            }
+
+            // --- Handle Space key for de-highlighting ZWNJ/ZWJ or clearing suggestions ---
+            if (event.key === ' ') {
+                if (highlightedButton) {
+                    event.preventDefault(); // Prevent space insertion
+                    insertZWNJBtn.classList.remove('highlighted');
+                    insertZWJBtn.classList.remove('highlighted');
+                    highlightedButton = null;
+                    return; // Do not clear suggestions
+                } else {
+                    // Allow default space insertion, and clear suggestions
+                    clearSuggestionHighlight();
+                    selectedSuggestionIndex = -1;
+                    return;
+                }
+            }
+
+            // --- Handle Slash key (clear suggestions but allow insertion) ---
+            if (event.key === '/') {
+                clearSuggestionHighlight();
+                selectedSuggestionIndex = -1;
+                // Allow default action for Slash (inserting the character)
+                return; // Handled, but allow default key action
             }
 
             // --- Other Keydown Logic (only if Tab or Shift was NOT pressed) ---
@@ -1899,16 +1940,8 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
                     );
                     return; // Handled
                 }
-            }
-
-            // --- Explicitly clear suggestions on Spacebar or Slash ---
-            if (event.key === ' ' || event.key === '/') {
-                clearSuggestionHighlight();
-                selectedSuggestionIndex = -1;
-                // Allow default action for Space/Slash (inserting the character)
-                return; // Handled, but allow default key action
-            }
-        });
+                }
+            });
 
         textarea.addEventListener('keyup', (event) => {
             // Handle Shift keyup for ZWNJ/ZWJ toggle only if pressed alone
@@ -1961,7 +1994,7 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
                 return;
             }
 
-            // Handle typing hidden characters like '/', '*', '**', '\'
+            // Handle typing hidden characters like '/', '*', '**', '\\'
             // These characters are not visibly inserted into the textarea but affect the conceptual string.
             if (charTyped === '/' || charTyped === '*' || charTyped === '**' || charTyped === '\\') {
                 event.preventDefault();
@@ -1992,7 +2025,7 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
                 return;
             }
 
-            // Handle Backspace/Delete keys in input area for hidden characters
+            // Handle Backspace/Delete keysin input area for hidden characters
             if (event.inputType === 'deleteContentBackward' || event.inputType === 'deleteContentForward') {
                 let conceptualTargetIndex = -1; // The conceptual index that potentially holds a hidden char to delete
                 
