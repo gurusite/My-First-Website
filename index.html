@@ -58,7 +58,7 @@
             color: #1d4ed8; /* text-blue-800 */
             padding: 0.5rem 0.75rem; /* px-3 py-2 */
             border-radius: 0.375rem; /* rounded-md */
-            font-size: 1rem; /* text-base */
+            font-size: 1.5rem; /* text-base */
             font-weight: 500; /* font-medium */
             cursor: pointer;
             border: none;
@@ -85,6 +85,7 @@
             font-weight: 600; /* font-semibold */
             margin-bottom: 0.5rem; /* mb-2 */
             color: #1f2937; /* text-gray-900 */
+            font-size: 1.5rem;      
         }
         .output-actions {
             display: flex;
@@ -136,6 +137,76 @@
         .keyboard-row button:active {
             transform: scale(0.95);
         }
+        
+        /* Tips and Tricks Section */
+        .tips-container {
+            margin-top: 2rem;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tips-header {
+            background-color: #3b82f6;
+            color: white;
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+        
+        .tips-content {
+            background-color: #f1f5f9;
+            padding: 1rem;
+      		font-size: 1.5rem;
+        }
+        
+        .tip-item {
+            margin-bottom: 0.75rem;
+            display: flex;
+        }
+        
+        .tip-bullet {
+            color: #3b82f6;
+            font-weight: bold;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+        
+        .examples-container {
+            margin-top: 1.5rem;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .examples-header {
+            background-color: #10b981;
+            color: white;
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+        
+        .examples-content {
+            background-color: #ecfdf5;
+            padding: 1rem;
+      		font-size: 1.5rem;
+        }
+        
+        .example-item {
+            margin-bottom: 0.5rem;
+            display: flex;
+        }
+        
+        .example-input {
+            font-weight: 500;
+            margin-right: 0.5rem;
+            color: #059669;
+        }
+        
+        .example-output {
+            color: #065f46;
+        }
     </style>
 </head>
 <body>
@@ -174,6 +245,81 @@
                 <button id="copyBtn" class="action-button">Copy</button>
             </div>
         </div>
+        
+        <!-- Tips and Tricks Section -->
+        <div class="tips-container">
+            <div class="tips-header">Tips and Tricks</div>
+            <div class="tips-content">
+                <div class="tip-item">
+                    <span class="tip-bullet">•</span>
+                    <span>General phonetic: k=क्, ka=क, kaa=का, ki=कि, kii=की, ku=कु, kuu=कू, ke=के, kai=कै, ko=को, kau=कौ, yna = ञ</span>
+                </div>
+                <div class="tip-item">
+                    <span class="tip-bullet">•</span>
+                    <span>To mix English into your Nepali text. Simply put any text you want to keep in English inside the curly {} brackets. Example: yo {mobile} mero ho. = यो mobile मेरो हो।</span>
+                </div>
+                <div class="tip-item">
+                    <span class="tip-bullet">•</span>
+                    <span>If a letter gets wrongly evaluated with the next letter, use the slash (/) key to separate. Example: .pratishatko = प्रतिशत्को, pratishat/ko = प्रतिशतको | शब्दको अन्त्यमा हलन्त नराख्नको लागि backslash (\) अक्षर प्रयोग गर्नुहोस् । Example: bas = बस्, bas\ = बस।</span>
+                </div>
+                <div class="tip-item">
+                    <span class="tip-bullet">•</span>
+                    <span class="tip-text">When typing /, *, **, these won't be seen in the input and output as they are special formatting characters</span>
+                </div>             
+                <div class="tip-item">
+                    <span class="tip-bullet">•</span>
+                    <span>Other special characters: .=।, ..=॥, *=ं, **=ँ,</span>
+                </div>
+                <div class="tip-item">
+                    <span class="tip-bullet">•</span>
+                    <span>Press shift key to toggle 'ZWNJ' and 'ZWJ' and 'enter' to select</span>
+                </div>
+                <div class="tip-item">
+                    <span class="tip-bullet">•</span>
+                    <span>Note: 'ZWNJ' and 'ZWJ' are used to type like न्+zwj=न्‍</span>
+                </div>
+                <div class="tip-item">
+                    <span class="tip-bullet">•</span>
+                    <span>Press 'Tab' to disable suggestions and press again to enable</span>
+                </div>
+                <div class="tip-item">
+                    <span class="tip-bullet">•</span>
+                    <span>Use arrows like ←,→,↑,↓ to cycle/move across suggestions</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Examples Section -->
+        <div class="examples-container">
+            <div class="examples-header">Some Examples</div>
+            <div class="examples-content">
+                <div class="example-item">
+                    <span class="example-input">namaskar</span>
+                    <span class="example-output">= नमस्कार</span>
+                </div>
+                <div class="example-item">
+                    <span class="example-input">dhanyawaad</span>
+                    <span class="example-output">= धन्यवाद</span>
+                </div>
+                <div class="example-item">
+                    <span class="example-input">sagarmatha</span>
+                    <span class="example-output">= सगरमाथा</span>
+                </div>
+                <div class="example-item">
+                    <span class="example-input">sa*bidhan</span>
+                    <span class="example-output">= संविधान</span>
+                </div>
+                <div class="example-item">
+                    <span class="example-input">swatantrataa</span>
+                    <span class="example-output">= स्वतन्त्रता</span>
+                </div>
+                <div class="example-item">
+                    <span class="example-input">Kathmandu</span>
+                    <span class="example-output">= काठमणडौँ</span>
+                </div>
+            </div>
+        </div>
+        
         <div id="userIdDisplay" class="user-id-display"></div>
     </div>
 
@@ -265,7 +411,7 @@ g=ग्/ग , ga=ग/गा , gaa=गा , gi=गि/गी , gii=गी , gu=�
 घ (gha)
 gh=घ्/घ , gha=घ/घा , ghaa=घा , ghi=घि/घी , ghii=झी , ghu=घु/घू , ghuu=घू , ghe=घे , ghai=घै , gho=घो , ghau=घौ 
 ङ (nga)
-ng=ङ्/ङ , nga=ङ/ङा , ngaa=ङा , ngi=ङि/ङी , ngii=ڭी , ngu=ڭु/ङू , nguu=ڭू , nge=ڭे , ngai=ڭै , ngo=ڭो , ngau=ڭौ  
+ng=ङ्/ङ , nga=ङ/ङा , ngaa=ङा , ngi=ङि/ङी , ngii=ङी , ngu=ङु/ङू , nguu=ङू , nge=ङे , ngai=ङै , ngo=ङो , ngau=ङौ   
 च (cha)
 ch=च्/च , cha=च/चा , chaa=चा , chi=चि/ची , chii=ची , chu=चु/चू , chuu=चू , che=चे , chai=चै , cho=चो , chau=चौ
 छ (chha)
@@ -287,7 +433,7 @@ d= ड्/द्/ड/द , da= ड/द/डा/दा , daa=दा , di= डि/�
 ध (dha)
 dh= ढ्/ध् , dha= ढ/ध/ढा/धा , dhaa= ढा/धा , dhi= ढि/धि/ढी/धी , dhii= ढी/धी , dhu= ढु/धु/ढू/धू , dhuu= ढू/धू , dhe= ढे/धे , dhai= ढै/धै , dho=ढो/धो , dhau=ढौ/धौ 
 न (na)
-n=न्/ण्/ञ्/न/ञ/ण , na=न/ञ/ण/ना , naa=ना , ni=नि/नी/णि/णी , nii=नी/णी , nu=नु/नू , nuu=नू , ne=ने/णे , nai=नै/णै , no=नो/णो , nau=नौ/णौ
+n=न्/ण्/ञ्/न/ञ/ण/ ं , na=न/ञ/ण/ना , naa=ना , ni=नि/नी/णि/णी , nii=नी/णी , nu=नु/नू , nuu=नू , ne=ने/णे , nai=नै/णै , no=नो/णो , nau=नौ/णौ
 प (pa)
 p=प्/ प  , pa=प/ पा  , paa=पा , pi=पि/ पी  , pii=पी , pu=पु/ पू  , puu=पू , pe=पे , pai=पै , po=पो , pau=पौ
 फ (pha)
@@ -297,7 +443,7 @@ b=ब्/ब/व्/व, ba=ब/बा/व/वा , baa=बा/वा , bi=ब�
 भ (bha)
 bh=भ्/ भ  , bha=भ/ भा  , bhaa=भा , bhi=भि/ भी  , bhii=भी , bhu=भु/ भू  , bhuu=भू , bhe=भे , bhai=भै , bho=भो , bhau=भौ 
 म (ma)
-m=म्/ म  , ma=म/ मा  , maa=मा , mi=मि/ मी  , mii=मी , mu=मु/ मू  , muu=मू , me=मे , mai=मै , mo=मो , mau=मौ
+m=म्/ म/ ं  , ma=म/ मा  , maa=मा , mi=मि/ मी  , mii=मी , mu=मु/ मू  , muu=मू , me=मे , mai=मै , mo=मो , mau=मौ
 य (ya)
 y=य्/ य  , ya=य/ या  , yaa=या , yi=यि/ यी  , yii=यी , yu=यु/ यू  , yuu=यू , ye=ये , yai=यै , yo=यो , yau=यौ 
 र (ra)
@@ -707,80 +853,80 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
             ['ए', 'e'], ['ऐ', 'ai'], ['ओ', 'o'], ['औ', 'au'],
 
             // Special symbols
-            ['ॐ', 'om'], ['।', '.'], ['॥', '..'],['ृ','ri'],['ँ',''], ['ं',''], ['्',''], [ '?','?'], ['!','!'],
+            ['ॐ', 'om'], ['।', '.'], ['॥', '..'],['ृ','ri'],['ँ',''], ['ं',''], ['्',''], [ '?','?'], ['!','!'], ['ः',''],
             
          	//Barhakhari (consolidated to prioritize common simplified forms)
-            ['क्', 'k'], ['क', 'ka'], ['का', 'kaa'], ['कि', 'ki'], ['की', 'kii'], ['कु', 'ku'], ['कू', 'kuu'], ['के', 'ke'], 
+            ['क्', 'k'], ['क', 'ka'], ['का', 'kaa'], ['कि', 'ki'], ['की', 'ki'], ['कु', 'ku'], ['कू', 'ku'], ['के', 'ke'], 
             ['कै', 'kai'], ['को', 'ko'], ['कौ', 'kau'],
-            ['ख्', 'kh'],['ख', 'kh'], ['खा', 'kha'], ['खि', 'khi'], ['खी', 'khii'], ['खु', 'khu'], ['खू', 'khuu'], 
+            ['ख्', 'kh'],['ख', 'kha'], ['खा', 'kha'], ['खि', 'khi'], ['खी', 'khi'], ['खु', 'khu'], ['खू', 'khu'], 
             ['खे', 'khe'], ['खै', 'khai'], ['खो', 'kho'], ['खौ', 'khau'],
-            ['ग्', 'g'], ['ग', 'ga'], ['गा', 'gaa'], ['गि', 'gi'], ['गी', 'gii'], ['गु', 'gu'], ['गू', 'guu'], ['गे', 'ge'], 
+            ['ग्', 'g'], ['ग', 'ga'], ['गा', 'gaa'], ['गि', 'gi'], ['गी', 'gi'], ['गु', 'gu'], ['गू', 'gu'], ['गे', 'ge'], 
             ['गै', 'gai'], ['गो', 'go'], ['गौ', 'gau'], 
-            ['घ्', 'gh'], ['घ', 'gha'], ['घा', 'ghaa'], ['घि', 'ghi'], ['घी', 'ghii'], ['घु', 'ghu'], ['घू', 'ghuu'], 
+            ['घ्', 'gh'], ['घ', 'gha'], ['घा', 'ghaa'], ['घि', 'ghi'], ['घी', 'ghi'], ['घु', 'ghu'], ['घू', 'ghu'], 
             ['घे', 'ghe'], ['घै', 'ghai'], ['घो', 'gho'], ['घौ', 'ghau'],
             ['ङ्', 'ng'], ['ङ', 'nga'], ['ङा', 'ngaa'], ['ङि', 'ngi'], ['ङी', 'ngii'], ['ङु', 'ngu'], ['ङू', 'nguu'], 
-            ['ङे', 'nge'], ['ङै', 'ngai'], ['ڭो', 'ngo'], ['ڭौ', 'ngau'],  
-            ['च्', 'ch'], ['च', 'cha'], ['चा', 'chaa'], ['चि', 'chi'], ['ची', 'chii'], ['चु', 'chu'], ['चू', 'chuu'], 
+            ['ङे', 'nge'], ['ङै', 'ngai'], ['ङो', 'ngo'], ['ङौ', 'ngau'], 
+            ['च्', 'ch'], ['च', 'cha'], ['चा', 'chaa'], ['चि', 'chi'], ['ची', 'chi'], ['चु', 'chu'], ['चू', 'chu'], 
             ['चे', 'che'], ['चै', 'chai'], ['चो', 'cho'], ['चौ', 'chau'],
-            ['छ्', 'chh'], ['छ', 'chha'], ['छा', 'chhaa'], ['छि', 'chhi'], ['छी', 'chhii'], ['छु', 'chhu'], ['छू', 'chhuu'], 
+            ['छ्', 'chh'], ['छ', 'chha'], ['छा', 'chhaa'], ['छि', 'chhi'], ['छी', 'chhi'], ['छु', 'chhu'], ['छू', 'chhu'], 
             ['छे', 'chhe'], ['छै', 'chhai'], ['छो', 'chho'], ['छौ', 'chhau'],
-            ['ज्', 'j'], ['ज', 'ja'], ['जा', 'jaa'], ['जि', 'ji'], ['जी', 'jii'], ['जु', 'ju'], ['जू', 'juu'], ['जे', 'je'], 
+            ['ज्', 'j'], ['ज', 'ja'], ['जा', 'jaa'], ['जि', 'ji'], ['जी', 'ji'], ['जु', 'ju'], ['जू', 'ju'], ['जे', 'je'], 
             ['जै', 'jai'], ['जो', 'jo'], ['जौ', 'jau'], 
-            ['झ्', 'jh'], ['झ', 'jha'], ['झा', 'jhaa'], ['झि', 'jhi'], ['झी', 'jhii'], ['झु', 'jhu'], ['झू', 'jhuu'], 
+            ['झ्', 'jh'], ['झ', 'jha'], ['झा', 'jhaa'], ['झि', 'jhi'], ['झी', 'jhi'], ['झु', 'jhu'], ['झू', 'jhu'], 
             ['झे', 'jhe'], ['झै', 'jhai'], ['झो', 'jho'], ['झौ', 'jhau'],  
-            ['ञ्', 'ny'], ['ञ', 'nya'], ['ञा', 'nyaa'], ['ञि', 'nyi'], ['ञी', 'nyii'], ['ञु', 'nyu'], ['ञू', 'nyuu'], 
+            ['ञ्', 'ny'], ['ञ', 'nya'], ['ञा', 'nyaa'], ['ञि', 'nyi'], ['ञी', 'nyi'], ['ञु', 'nyu'], ['ञू', 'nyu'], 
             ['ञे', 'nye'], ['ञै', 'nyai'], ['ञो', 'nyo'], ['ञौ', 'nyau'], 
-            ['ट्', 't'], ['ट', 'ta'], ['टा', 'taa'], ['टि', 'ti'], ['टी', 'tii'], ['टु', 'tu'], ['टू', 'tuu'], ['टे', 'te'], 
+            ['ट्', 't'], ['ट', 'ta'], ['टा', 'taa'], ['टि', 'ti'], ['टी', 'ti'], ['टु', 'tu'], ['टू', 'tu'], ['टे', 'te'], 
             ['टै', 'tai'], ['टो', 'to'], ['टौ', 'tau'], 
-            ['ठ्', 'th'], ['ठ', 'tha'], ['ठा', 'thaa'], ['ठि', 'thi'], ['ठी', 'thii'], ['ठु', 'thu'], ['ठू', 'thuu'], 
+            ['ठ्', 'th'], ['ठ', 'tha'], ['ठा', 'thaa'], ['ठि', 'thi'], ['ठी', 'thi'], ['ठु', 'thu'], ['ठू', 'thu'], 
             ['ठे', 'the'], ['ठै', 'thai'], ['ठो', 'tho'], ['ठौ', 'thau'],
-            ['ड्', 'd'], ['ड', 'da'], ['डा', 'daa'], ['डि', 'di'], ['डी', 'dii'], [' डु', 'du'], ['डू', 'duu'], ['डे', 'de'], 
+            ['ड्', 'd'], ['ड', 'da'], ['डा', 'daa'], ['डि', 'di'], ['डी', 'di'], [' डु', 'du'], ['डू', 'du'], ['डे', 'de'], 
             ['डै', 'dai'], ['डो', 'do'], ['डौ', 'dau'],
-            ['ढ्', 'dh'], ['ढ', 'dha'], ['ढा', 'dhaa'], ['ढि', 'dhi'], ['ढी', 'dhii'], ['ढु', 'dhu'], ['ढू', 'dhuu'], 
+            ['ढ्', 'dh'], ['ढ', 'dha'], ['ढा', 'dhaa'], ['ढि', 'dhi'], ['ढी', 'dhi'], ['ढु', 'dhu'], ['ढू', 'dhu'], 
             ['धे', 'dhe'], ['धै', 'dhai'], ['धो', 'dho'], ['धौ', 'dhau'], 
-            ['ण्', 'n'], ['ण', 'na'], ['णा', 'naa'], ['णि', 'ni'], ['णी', 'nii'], ['णु', 'nu'], ['णू', 'nuu'], ['णे', 'ne'], 
+            ['ण्', 'n'], ['ण', 'na'], ['णा', 'naa'], ['णि', 'ni'], ['णी', 'ni'], ['णु', 'nu'], ['णू', 'nu'], ['णे', 'ne'], 
             ['णै', 'nai'], ['णो', 'no'], ['णौ', 'nau'],
-            ['त्', 't'], ['त', 'ta'], ['ता', 'taa'], ['ति', 'ti'], ['ती', 'tii'], ['तु', 'tu'], ['तू', 'tuu'], ['ते', 'te'], 
+            ['त्', 't'], ['त', 'ta'], ['ता', 'taa'], ['ति', 'ti'], ['ती', 'ti'], ['तु', 'tu'], ['तू', 'tu'], ['ते', 'te'], 
             ['तै', 'tai'], ['तो', 'to'], ['तौ', 'tau'], 
-            ['थ्', 'th'], ['थ', 'tha'], ['था', 'thaa'], ['थि', 'thi'], ['थी', 'thii'], ['थु', 'thu'], ['थू', 'thuu'], 
+            ['थ्', 'th'], ['थ', 'tha'], ['था', 'thaa'], ['थि', 'thi'], ['थी', 'thi'], ['थु', 'thu'], ['थू', 'thu'], 
             ['थे', 'the'], ['थै', 'thai'], ['थो', 'tho'], ['थौ', 'thau'], 
-            ['द्', 'd'], ['द', 'da'], ['दा', 'daa'], ['दि', 'di'], ['दी', 'dii'], ['दु', 'du'], ['दू', 'duu'], ['दे ', 'de'], 
+            ['द्', 'd'], ['द', 'da'], ['दा', 'daa'], ['दि', 'di'], ['दी', 'di'], ['दु', 'du'], ['दू', 'du'], ['दे ', 'de'], 
             ['दै', 'dai'], ['दो', 'do'], ['दौ', 'dau'],  
-            ['ध्', 'dh'], ['ध', 'dha'], ['धा', 'dhaa'], ['धि', 'dhi'], ['धी', 'dhii'], ['धु', 'dhu'], ['धू', 'dhuu'], 
+            ['ध्', 'dh'], ['ध', 'dha'], ['धा', 'dhaa'], ['धि', 'dhi'], ['धी', 'dhi'], ['धु', 'dhu'], ['धू', 'dhu'], 
    			['धे', 'dhe'], ['धै', 'dhai'], ['धो', 'dho'], ['धौ', 'dhau'], 
-            ['न्', 'n'], ['न', 'na'], ['ना', 'naa'], ['नि', 'ni'], ['नी', 'nii'], ['nu', 'nu'], ['नू', 'nuu'], ['ने', 'ne'], 
+            ['न्', 'n'], ['न', 'na'], ['ना', 'naa'], ['नि', 'ni'], ['नी', 'ni'], ['nu', 'nu'], ['नू', 'nu'], ['ने', 'ne'], 
             ['नै', 'nai'], ['नो', 'no'], ['नौ', 'nau'], 
-            ['प्', 'p'], ['प', 'pa'], ['पा', 'paa'], ['पि', 'pi'], ['पी', 'pii'], ['पु', 'pu'], ['पू', 'puu'], ['पे', 'pe'], 
+            ['प्', 'p'], ['प', 'pa'], ['पा', 'paa'], ['पि', 'pi'], ['पी', 'pi'], ['पु', 'pu'], ['पू', 'pu'], ['पे', 'pe'], 
             ['पै', 'pai'], ['पो', 'po'], ['पौ', 'pau'],
-            ['फ्', 'ph'], ['फ', 'pha'], ['फा', 'phaa'], ['फि', 'phi'], ['फी', 'phii'], ['फु', 'phu'], ['फू', 'phuu'], 
+            ['फ्', 'ph'], ['फ', 'pha'], ['फा', 'phaa'], ['फि', 'phi'], ['फी', 'phi'], ['फु', 'phu'], ['फू', 'phu'], 
             ['फे', 'phe'], ['फै', 'phai'], ['फो', 'fo'], ['फौ', 'phau'], 
-            ['ब्', 'b'], ['ब', 'ba'], ['बा', 'baa'], ['बि', 'bi'], ['बी', 'bii'], ['बु', 'bu'], ['बू', 'buu'], ['बे', 'be'], 
+            ['ब्', 'b'], ['ब', 'ba'], ['बा', 'baa'], ['बि', 'bi'], ['बी', 'bi'], ['बु', 'bu'], ['बू', 'bu'], ['बे', 'be'], 
             ['बै', 'bai'], ['बो', 'bo'], ['बौ', 'bau'],
-            ['भ्', 'bh'], ['भ', 'bha'], ['भा', 'bhaa'], ['भि', 'bhi'], ['भी', 'bhii'], ['भु', 'bhu'], ['भू', 'bhuu'], 
+            ['भ्', 'bh'], ['भ', 'bha'], ['भा', 'bhaa'], ['भि', 'bhi'], ['भी', 'bhi'], ['भु', 'bhu'], ['भू', 'bhu'], 
             ['भे', 'bhe'], ['भै', 'bhai'], ['भो', 'bho'], ['भौ', 'bhau'], 
-            ['म्', 'm'], ['म', 'ma'], ['मा', 'maa'], ['मि', 'mi'], ['मी', 'mii'], ['मु', 'mu'], ['मू', 'muu'], ['मे', 'me'], 
+            ['म्', 'm'], ['म', 'ma'], ['मा', 'maa'], ['मि', 'mi'], ['मी', 'mi'], ['मु', 'mu'], ['मू', 'mu'], ['मे', 'me'], 
             ['मै', 'mai'], ['मो', 'mo'], ['मौ', 'mau'], 
-            ['य्', 'y'], ['य', 'ya'], ['या', 'yaa'], ['यि', 'yi'], ['यी', 'yii'], ['यु', 'yu'], ['यू', 'yuu'], ['ये', 'ye'], 
+            ['य्', 'y'], ['य', 'ya'], ['या', 'yaa'], ['यि', 'yi'], ['यी', 'yi'], ['यु', 'yu'], ['यू', 'yu'], ['ये', 'ye'], 
             ['यै', 'yai'], ['यो', 'yo'], ['यौ', 'yau'], 
-            ['र्', 'r'], ['र', 'ra'], ['रा', 'raa'], ['रि', 'ri'], ['री', 'rii'], ['रु', 'ru'], ['रू', 'ruu'], ['रे', 're'], 
+            ['र्', 'r'], ['र', 'ra'], ['रा', 'raa'], ['रि', 'ri'], ['री', 'ri'], ['रु', 'ru'], ['रू', 'ru'], ['रे', 're'], 
             ['रै', 'rai'], ['रो', 'ro'], ['रौ', 'rau'], 
-            ['ल्', 'l'], ['ल', 'la'], ['ला', 'laa'], ['लि', 'li'], ['ली', 'lii'], ['लु', 'lu'], ['लू', 'luu'], ['ले', 'le'], 
+            ['ल्', 'l'], ['ल', 'la'], ['ला', 'laa'], ['लि', 'li'], ['ली', 'li'], ['लु', 'lu'], ['लू', 'lu'], ['ले', 'le'], 
             ['लै', 'lai'], ['लो', 'lo'], ['लौ', 'lau'],
-            ['व्', 'w'], ['व', 'wa'], ['वा', 'waa'], ['वि', 'wi'], ['वी', 'wii'], ['वु', 'wu'], ['वू', 'wuu'], ['वे', 'we'], 
+            ['व्', 'w'], ['व', 'wa'], ['वा', 'waa'], ['वि', 'wi'], ['वी', 'wi'], ['वु', 'wu'], ['वू', 'wu'], ['वे', 'we'], 
             ['वै', 'wai'], ['वो', 'wo'], ['वौ', 'wau'], 
-            ['श्', 'sh'], ['श', 'sha'], ['शा', 'shaa'], ['शि', 'shi'], ['शी', 'shii'], ['शु', 'shu'], ['शू', 'shuu'], 
+            ['श्', 'sh'], ['श', 'sha'], ['शा', 'shaa'], ['शि', 'shi'], ['शी', 'shi'], ['शु', 'shu'], ['शू', 'shu'], 
             ['शे', 'she'], ['शै', 'shai'], ['शो', 'sho'], ['शौ', 'shau'], 
-            ['ष्', 'sh'], ['ष', 'sha'], ['षा', 'shaa'], ['षि', 'shi'], ['षी', 'shii'], ['षु', 'shu'], ['षू', 'shuu'], 
+            ['ष्', 'sh'], ['ष', 'sha'], ['षा', 'shaa'], ['षि', 'shi'], ['षी', 'shi'], ['षु', 'shu'], ['षू', 'shu'], 
             ['षे', 'she'], ['षै', 'shai'], ['षो', 'sho'], ['षौ', 'shau'], 
-            ['स्', 's'], ['स', 'sa'], ['सा', 'saa'], ['सि', 'si'], ['सी', 'sii'], ['सु', 'su'], ['सू', 'suu'], ['से', 'se'], 
+            ['स्', 's'], ['स', 'sa'], ['सा', 'saa'], ['सि', 'si'], ['सी', 'si'], ['सु', 'su'], ['सू', 'su'], ['से', 'se'], 
             ['सै', 'sai'], ['सो', 'so'], ['सौ', 'sau'],  
-            ['ह्', 'h'], ['ह', 'ha'], ['हा', 'haa'], ['हि', 'hi'], ['ही', 'hii'], ['हु', 'hu'], ['हू', 'huu'], ['हे', 'he'], 
+            ['ह्', 'h'], ['ह', 'ha'], ['हा', 'haa'], ['हि', 'hi'], ['ही', 'hi'], ['हु', 'hu'], ['हू', 'hu'], ['हे', 'he'], 
             ['है', 'hai'], ['हो', 'ho'], ['हौ', 'hau'], 
-            ['क्ष्', 'ksh'], ['क्ष', 'ksha'], ['क्षा', 'kshaa'], ['क्षि', 'kshi'], ['क्षी', 'kshii'], ['क्षु', 'kshu'], ['क्षू', 'kshuu'], 
+            ['क्ष्', 'ksh'], ['क्ष', 'ksha'], ['क्षा', 'kshaa'], ['क्षि', 'kshi'], ['क्षी', 'kshi'], ['क्षु', 'kshu'], ['क्षू', 'kshu'], 
             ['क्षे', 'kshe'], ['क्षै', 'kshai'], ['क्षो', 'kshau'], ['क्षौ', 'kshau'], 
-            ['त्र्', 'tr'], ['त्र', 'tra'], ['त्रा', 'traa'], ['त्रि', 'tri'], ['त्री', 'trii'], ['त्रु ', 'tru'], ['त्रू', 'truu'], 
+            ['त्र्', 'tr'], ['त्र', 'tra'], ['त्रा', 'traa'], ['त्रि', 'tri'], ['त्री', 'tri'], ['त्रु ', 'tru'], ['त्रू', 'tru'], 
             ['त्रे', 'tre'], ['त्रै', 'trai'], ['त्रो', 'tro'], ['त्रौ', 'trau'], 
-            ['ज्ञ्', 'gy'], ['ज्ञ', 'gya'], ['ज्ञा', 'gyaa'], ['ज्ञि', 'gyi'], ['ज्ञी', 'gyii'], ['ज्ञु ', 'gyu'], ['ज्ञू', 'gyuu'], 
+            ['ज्ञ्', 'gy'], ['ज्ञ', 'gya'], ['ज्ञा', 'gyaa'], ['ज्ञि', 'gyi'], ['ज्ञी', 'gyi'], ['ज्ञु ', 'gyu'], ['ज्ञू', 'gyu'], 
             ['ज्ञे', 'gye'], ['ज्ञै', 'gyai'], ['ज्ञो', 'gyo'], ['ज्ञौ', 'gyau'], 
             
             // --- Add specific conjunct mappings for Devanagari to phonetic conversion ---
@@ -794,7 +940,7 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
             //['न्द्य', 'ndy'], // Case-sensitive for 'N' family
             //['श्र', 'shr'], // for 'श्री'
             //['द्य', 'dy'], // for 'विद्या'
-            ['द्व', 'dw'], // for 'द्वेष'
+            // ['द्व', 'dw'], // for 'द्वेष'
             //['ह्य', 'hy'] // for 'चिन्ह'
             // End of new specific mappings
                                                                   
@@ -887,17 +1033,20 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
             "farak", "sadharan", "vishesh", "mahatvapurna", "aavashyak", "anavashyak", "purna", "apoorna", "samanya", "asamanya",
             "sundar", "kuroop", "dhani", "garib", "dayalu", "nisthur", "imandaar", "beimaan", "kathore", "naram",
             "khusi", "dukhi", "swasth", "aswasth", "jiundo", "mareko", "safaa", "fohore", "purano", "naya",
-            "puraana", "naya", "ramro", "naramro", "स्त्री","द्वन्द्व","मर्‍यो",
+            "puraana", "naya", "ramro", "naramro", "स्त्री","द्वन्द्व","मर्‍यो", "सुदृढीकरण",
         ];
         
 
         // --- Common Spelling Dictionary (English to Nepali direct mappings, case-insensitive) ---
         const commonSpellingDictionary = new Map([
             ['nepal', 'नेपाल'],
+            ['kathmandu', 'काठमणडौँ'],
+            ['himalaya', 'हिमालय'],
+            ['sagarmatha', 'सगरमाथा'],
             // Add more common mappings as needed, e.g.:
-            // ['kathmandu', 'काठमाडौं'],
-            // ['himalaya', 'हिमालय'],
-            // ['everest', 'सगरमाथा'],
+            //['kathmandu', 'काठमणडौँ'],
+            //['himalaya', 'हिमालय'],
+            //['sagarmatha', 'सगरमाथा'],
             // ['namaste', 'नमस्ते']
         ]);
 
@@ -1075,28 +1224,46 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
             if (sequenceLC.endsWith('ri') && sequenceLC.length > 2) {
                 const prefix = currentConceptualPhoneticSequenceForBarhakhari.slice(0, -2);
                 const prefixLC = prefix.toLowerCase();
-                if (barhakhariMap.has(prefixLC)) {
-                    const possibleForms = barhakhariMap.get(prefixLC);
-                    const riForms = barhakhariMap.get('ri'); // Get forms for 'ri'
-                    const riMatra = riForms.find(f => f === 'ृ') || 'ृ'; // Get the matra 'ृ'
-                    possibleForms.forEach(form => {
-                        if (form.endsWith('्')) {
-                            const baseConsonant = form.slice(0, -1);
-                            const combined = baseConsonant + riMatra;
-                            // Ensure no duplicate
-                            const existing = allSuggestions.find(s => s.nepaliChar === combined && s.isWord === false);
-                            if (!existing) {
-                                allSuggestions.push({
-                                    englishKey: prefix + 'ri',
-                                    nepaliChar: combined,
-                                    startIndex: currentConceptualSegmentStartForBarhakhari,
-                                    count: historyData[combined] || 0,
-                                    isWord: false
-                                });
-                            }
+                const riForms = barhakhariMap.get('ri') || []; // Get forms for 'ri'
+                const riMatra = riForms.find(f => f === 'ृ') || 'ृ'; // Get the matra 'ृ'
+
+                // Scan backwards to find the longest possible consonant key at the end of prefix
+                let foundConsonant = false;
+                for (let len = Math.min(6, prefix.length); len > 0; len--) {
+                    const consonantSegment = prefix.slice(-len);
+                    const lookupKey = caseSensitiveKeys.has(consonantSegment) ? consonantSegment : consonantSegment.toLowerCase();
+
+                    if (barhakhariMap.has(lookupKey)) {
+                        const forms = barhakhariMap.get(lookupKey);
+                        const halantaForms = forms.filter(f => f.endsWith('्'));
+
+                        if (halantaForms.length > 0) {
+                            foundConsonant = true;
+                            const prePrefix = prefix.slice(0, -len);
+                            // const prePrefixDev = phoneticToDevanagari(prePrefix);  // Remove this
+
+                            halantaForms.forEach(form => {
+                                const baseConsonant = form.slice(0, -1);
+                                const combined = baseConsonant + riMatra;  // Change to this, without prePrefixDev
+
+                                // Ensure no duplicate
+                                const existing = allSuggestions.find(s => s.nepaliChar === combined && s.isWord === false);
+                                if (!existing) {
+                                    allSuggestions.push({
+                                        englishKey: consonantSegment + 'ri',  // Change to this, without prePrefix
+                                        nepaliChar: combined,
+                                        startIndex: currentConceptualSegmentStartForBarhakhari + prefix.length - len,
+                                        count: historyData[combined] || 0,
+                                        isWord: false
+                                    });
+                                }
+                            });
+                            break; // Stop after finding and adding the longest matching consonant
                         }
-                    });
+                    }
                 }
+
+                // If no consonant found (fallback, though unlikely), skip
             }
 
             // Sort suggestions: Barhakhari first (by count then length), then Words (by count then length)
@@ -1388,7 +1555,7 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
                         // Ensure the segment consists only of letters (no / or hidden modifiers inside for common match)
                         let hasInvalidChar = false;
                         for (let j = i; j < wordEnd; j++) {
-                            if (conceptualInput[j] === '/' || conceptualInput[j] === '*' || conceptualInput[j] === '**') {
+                            if (conceptualInput[j] === '/' || conceptualInput[j] === '*' || conceptualInput[j] === '**' || conceptualInput[j] === '\\') {
                                 hasInvalidChar = true;
                                 break;
                             }
@@ -1414,15 +1581,16 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
                 if (!segmentProcessed) {
                     // console.log(`[updateOutput] Falling back to phonetic conversion for conceptual index ${i}. Segment: "${conceptualInput.substring(i, Math.min(i + 6, conceptualInput.length))}"`);
                     // If the current conceptual character is '/', skip it entirely
-                    if (conceptualInput[i] === '/') {
-                        conceptualSegmentLengthUsed = 1; // Consume the '/' from conceptual input
+                    if (conceptualInput[i] === '/' || conceptualInput[i] === '\\') {
+                        conceptualSegmentLengthUsed = 1; // Consume the '/' or '\\' from conceptual input
                         // Do NOT add to finalOutput
                         outputToConceptualMap.push({ conceptualStart: i, conceptualEnd: i + conceptualSegmentLengthUsed, type: 'ignored-separator' });
                         i += conceptualSegmentLengthUsed;
                         segmentProcessed = true;
                     } else {
                         let longestMatchKey = '';
-                        let bestNepaliChar = '';
+                        let bestIndex = 0;
+                        let consumeExtra = 0;
                         let currentSegmentEndIndex = conceptualInput.length;
                         for(let k = i; k < conceptualInput.length; k++) {
                             // Stop a phonetic segment at space or explicit '/'
@@ -1438,19 +1606,28 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
                             let lookupKey = caseSensitiveKeys.has(segment) ? segment : segment.toLowerCase();
 
                             if (barhakhariMap.has(lookupKey)) {
-                                bestNepaliChar = barhakhariMap.get(lookupKey)[0];
                                 longestMatchKey = segment;
                                 break;
                             }
                         }
                         
                         if (longestMatchKey) {
+                            const lookupKey = caseSensitiveKeys.has(longestMatchKey) ? longestMatchKey : longestMatchKey.toLowerCase();
+                            const forms = barhakhariMap.get(lookupKey);
+                            const nextIdx = i + longestMatchKey.length;
+                            if (nextIdx < conceptualInput.length && conceptualInput[nextIdx] === '\\') {
+                                if (forms.length > 1) {
+                                    bestIndex = 1;
+                                }
+                                consumeExtra = 1;
+                            }
+                            const bestNepaliChar = forms[bestIndex];
                             finalOutput += bestNepaliChar;
                             conceptualSegmentLengthUsed = longestMatchKey.length;
                             for (let k = 0; k < bestNepaliChar.length; k++) {
                                 outputToConceptualMap.push({ conceptualStart: i, conceptualEnd: i + conceptualSegmentLengthUsed, type: 'phonetic' });
                             }
-                            i += conceptualSegmentLengthUsed;
+                            i += conceptualSegmentLengthUsed + consumeExtra;
                         } else {
                             // Fallback: direct copy of character to output (only if not a separator)
                             finalOutput += conceptualInput[i];
@@ -1778,15 +1955,15 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
                 const newValue = oldVisibleValue.substring(0, cursorPos) + '{}' + oldVisibleValue.substring(cursorPos);
                 textarea.value = newValue;
                 textarea.selectionStart = textarea.selectionEnd = cursorPos + 1;
-                lastProcessedTextAreaValue = textarea.value; // Update for next comparison
+                lastProcessedTextAreaValue = newValue; // Update for next comparison
                 updateOutput();
                 generateAndDisplaySuggestions();
                 return;
             }
 
-            // Handle typing hidden characters like '/', '*', '**'
+            // Handle typing hidden characters like '/', '*', '**', '\'
             // These characters are not visibly inserted into the textarea but affect the conceptual string.
-            if (charTyped === '/' || charTyped === '*' || charTyped === '**') {
+            if (charTyped === '/' || charTyped === '*' || charTyped === '**' || charTyped === '\\') {
                 event.preventDefault();
 
                 // Determine the conceptual insertion point
@@ -1796,6 +1973,8 @@ should not be case sensitive except 'N=ण्/ ण , Na=ण/ णा , न / न�
 
                 if (charTyped === '/') {
                     slashSplitPoints.add(conceptualInsertionPoint);
+                } else if (charTyped === '\\') {
+                    hiddenModifierPoints.set(conceptualInsertionPoint, '\\');
                 } else if (charTyped === '*') {
                     if (hiddenModifierPoints.has(conceptualInsertionPoint - 1) && hiddenModifierPoints.get(conceptualInsertionPoint - 1) === '*') {
                         hiddenModifierPoints.set(conceptualInsertionPoint - 1, '**');
